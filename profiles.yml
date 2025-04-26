@@ -1,0 +1,13 @@
+dbt_learn_repos:
+  outputs:
+    dev:
+      account: JXRWONB-QD64217
+      database: RAW
+      password: Snowflake@12345
+      role: Accountadmin
+      schema: staging
+      threads: 1
+      type: snowflake
+      user: SNOWMAN
+      warehouse: COMPUTE_WH
+  target: dev
