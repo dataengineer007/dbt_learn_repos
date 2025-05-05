@@ -1,7 +1,7 @@
 dbt_learn_repos:
   outputs:
     dev:
-      account: JXRWONB-QD64217
+      account: LZNYXPA-DPB43129
       database: RAW
       password: Snowflake@12345
       role: Accountadmin
