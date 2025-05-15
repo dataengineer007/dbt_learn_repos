@@ -1,7 +1,7 @@
 {{ config(
     materialized='dynamic_table'
     , snowflake_warehouse = 'COMPUTE_WH'
-    , database='SNOWFLAKE_DT'
+    , database='SNOWFLAKE_DT_NEW'
     , target_lag = 'DOWNSTREAM'
     , schema='Transform_DT'
 )}}

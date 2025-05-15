@@ -42,3 +42,11 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+    bootcamp:
+      +database: bootcamp             # ✅ Your final/cleansing layer
+      +schema: Silver
+      +materialized: table
+
+      Golden:
+        +schema: Golden
+        +materialized: table
