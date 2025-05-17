@@ -1,0 +1,55 @@
+
+SELECT 
+    -- CUSTOMER
+    c.C_CUSTKEY,
+    c.CUSTOMER_NAME,
+    c.EMAIL,
+    c.PHONE_NUMBER,
+    c.C_MKTSEGMENT,
+    c.SEGMENT_FLAG,
+    c.C_ACCTBAL,
+    c.VALUE_TIER,
+    c.CREATED_DATE AS CUSTOMER_CREATED_DATE,
+
+
+    -- ORDER
+    o.O_ORDERKEY,
+    o.O_ORDERDATE,
+    o.O_ORDERPRIORITY,
+    o.O_ORDERSTATUS,
+    o.ORDER_STATUS_MEANING,
+    o.O_TOTALPRICE,
+    o.PRICE_CATEGORY,
+    o.O_SHIPPRIORITY,
+    o.ORDER_AGE_DAYS,
+    o.CLEAN_COMMENT AS ORDER_COMMENT,
+
+
+    -- LINE ITEM
+    l.L_PARTKEY,
+    l.L_SUPPKEY,
+    l.L_LINENUMBER,
+    l.L_QUANTITY,
+    l.L_EXTENDEDPRICE,
+    l.L_DISCOUNT,
+    l.L_TAX,
+    l.NET_REVENUE,
+    l.TOTAL_TAX_AMOUNT,
+    l.L_RETURNFLAG,
+    l.RETURN_REASON,
+    l.L_COMMITDATE,
+    l.L_RECEIPTDATE,
+    l.IS_DELAYED,
+    l.CLEAN_COMMENT AS LINEITEM_COMMENT,
+
+
+    CURRENT_TIMESTAMP AS PROCESSED_TIMESTAMP
+	
+	FROM 
+    {{ ref('Silver_Customer') }} c
+JOIN 
+    {{ ref('Silver_Orders') }} o
+    ON c.C_CUSTKEY = o.O_CUSTKEY
+JOIN 
+    {{ ref('Silver_Lineitem') }} l
+    ON o.O_ORDERKEY = l.L_ORDERKEY

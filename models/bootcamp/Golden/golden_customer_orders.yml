@@ -1,0 +1,42 @@
+version: 2
+
+
+models:
+  - name: golden_aggregate
+    description: "Golden layer combining customer, orders, and lineitem data"
+
+    columns:
+      - name: C_CUSTKEY
+        tests:
+          - not_null:
+              severity: warn
+          
+
+
+
+      - name: O_ORDERKEY
+        tests:
+          - not_null
+
+
+       # values: ['RETURNED', 'ACCEPTED', 'NO RETURN']
+
+
+      - name: RETURN_REASON
+        tests:
+
+          - accepted_values:
+              values: ['RETURNED', 'ACCEPTED']
+              severity: warn
+
+
+              
+
+
+      - name: NET_REVENUE
+        tests:
+          - not_null:
+              severity: error
+              store_failures: true
+          - net_revenue_negative_when_returned: 
+              store_failures: true
