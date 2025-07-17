@@ -32,21 +32,19 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_learn_repos:
     staging:
-      +database: SNOWFLAKE_DT
+      +database: DBT_PROJECT
       +materialized: view
     
     cleansing:
-      +database: SNOWFLAKE_DT
+      +database: DBT_PROJECT
       +schema: cleansing               
       +materialized: table
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
     bootcamp:
-      +database: bootcamp             # ✅ Your final/cleansing layer
-      +schema: Silver
+      +database: DBT_PROJECT             # ✅ Your final/cleansing layer
+      +schema: RAW_LAYER
       +materialized: table
 
-      Golden:
-        +schema: Golden
-        +materialized: table
+     
