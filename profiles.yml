@@ -5,7 +5,7 @@ dbt_learn_repos:
       database: BOOTCAMP
       password: Snowflake@12345
       role: Accountadmin
-      schema: RAW_LAYER
+      schema: RAWLAYER
       threads: 1
       type: snowflake
       user: SNOWMAN
