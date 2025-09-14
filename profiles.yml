@@ -2,7 +2,7 @@ dbt_learn_repos:
   outputs:
     dev:
       account: GXVVTMJ-VPB03868
-      database: DBT_PROJECT
+      database: BOOTCAMP
       password: Snowflake@12345
       role: Accountadmin
       schema: RAW_LAYER
