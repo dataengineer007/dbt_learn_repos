@@ -2,10 +2,10 @@ dbt_learn_repos:
   outputs:
     dev:
       account: GXVVTMJ-VPB03868
-      database: BOOTCAMP
+      database: DBT_PRACTICE
       password: Snowflake@12345
       role: Accountadmin
-      schema: RAWLAYER
+      schema: RAW_LAYER
       threads: 1
       type: snowflake
       user: SNOWMAN
